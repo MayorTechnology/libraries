@@ -1,0 +1,51 @@
+
+#AddDefaultCharset UTF-8
+#ServerSignature Off
+#Options -Indexes
+#FileETag none
+#Header unset Cookie
+#Header unset Set-Cookie
+
+
+<IfModule mod_headers.c>
+#	Header unset ETag
+#	Header unset Cookie
+	Header unset Set-Cookie
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+    Header set Access-Control-Allow-Origin "*"
+#    ExpiresDefault "access plus 2 years"
+  </FilesMatch>
+</IfModule>
+
+ # Use Mod_deflate to compress static files SetOutputFilter DEFLATE # Speed up caching FileETag MTime Size # Expires ExpiresActive On ExpiresDefault "access plus 366 days" # Future Expires Headers Header set Expires "Sat, 27 Dec 2018 23:59:59 GMT"
+
+#<IfModule mod_headers.c>
+#	Header unset ETag
+#	Header unset Cookie
+#	Header unset Set-Cookie
+#</IfModule>
+#
+#<IfModule mod_rewrite.c>
+#	RewriteEngine On
+#</IfModule>
+
+#<IfModule mod_expires.c>
+#	ExpiresActive on
+#</IfModule>
+#
+#<FilesMatch "\.(ico|jpg|jpeg|jpe|png|gif)$">
+#	ExpiresDefault "access plus 2 years"
+#</FilesMatch>
+
+#<IfModule mod_expires.c>
+#  <FilesMatch "\.(ico|jpg|jpeg|jpe|png|gif)$">
+#    ExpiresDefault "access plus 2 years"
+#  </FilesMatch>
+##	ExpiresByType image/x-icon "access plus 2 years"
+##	ExpiresByType image/ico "access plus 2 years"
+##	ExpiresByType image/gif "access plus 2 years"
+##	ExpiresByType image/jpg "access plus 2 years"
+##	ExpiresByType image/jpe "access plus 2 years"
+##	ExpiresByType image/jpeg "access plus 2 years"
+##	ExpiresByType image/png "access plus 2 years"
+#</IfModule>
